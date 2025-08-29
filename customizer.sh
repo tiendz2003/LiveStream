@@ -18,7 +18,7 @@ NEW_APP_NAME=${2:-"NewApp"}
 # Kiểm tra xem người dùng đã nhập đủ tham số bắt buộc chưa
 if [ -z "$NEW_PACKAGE_NAME" ]; then
   # Cập nhật lại hướng dẫn sử dụng cho đúng
-  echo "Usage: ./mysetup.sh your.new.package [NewAppName]"
+  echo "Usage: ./customizer.sh your.new.package [NewAppName]"
   exit 1
 fi
 
