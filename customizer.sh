@@ -58,10 +58,11 @@ mv app/src/main/java/${OLD_PACKAGE_PATH}/* app/src/main/java/${NEW_PACKAGE_PATH}
 mv app/src/test/java/${OLD_PACKAGE_PATH}/* app/src/test/java/${NEW_PACKAGE_PATH}/ || true
 mv app/src/androidTest/java/${OLD_PACKAGE_PATH}/* app/src/androidTest/java/${NEW_PACKAGE_PATH}/ || true
 
-# Xóa cấu trúc thư mục cũ
-rm -rf "app/src/main/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1)"
-rm -rf "app/src/test/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1)"
-rm -rf "app/src/androidTest/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1)"
+# Xóa cấu trúc thư mục cũ - SỬA LỖI Ở ĐÂY
+# Thay vì xóa thư mục gốc chung (ví dụ: "com"), ta xóa thư mục của package cũ (ví dụ: "com/ronaldo")
+rm -rf "app/src/main/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1-2)"
+rm -rf "app/src/test/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1-2)"
+rm -rf "app/src/androidTest/java/$(echo $OLD_PACKAGE_PATH | cut -d/ -f1-2)"
 
 
 # --- DỌN DẸP ---
@@ -82,3 +83,4 @@ git add .
 git commit -m "Initial commit"
 
 echo "✅ Hoàn tất! Dự án mới của bạn đã sẵn sàng."
+
